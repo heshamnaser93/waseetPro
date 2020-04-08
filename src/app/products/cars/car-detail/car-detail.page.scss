@@ -1,0 +1,102 @@
+ion-header ion-buttons {
+  ion-back-button {
+    padding: 0 5px;
+    font-size: var(--ion-normal-font);
+  }
+}
+
+ion-header ion-title {
+  font-weight: 500;
+}
+
+ion-content {
+  .slides-pagination .swiper-wrapper .swiper-pagination.swiper-pagination-fraction {
+    color: var(--ion-color-light) !important;
+  }
+
+  ion-text.item-model {
+    color: var(--ion-color-dark);
+    p {
+      margin: 10px auto 5px;
+    }
+
+    h4 {
+      font-weight: 600;
+      margin: 0 auto 10px;
+    }
+  }
+
+  .item-info {
+    .item-info-details {
+      display: inline-block;
+      width: 33.3333%;
+      text-align: center;
+
+      ion-icon {
+        display: block;
+        margin: 5px auto;
+      }
+
+      ion-text {
+        font-size: var(--ion-normal-font);
+      }
+    }
+  }
+
+  ion-segment {
+    margin: 20px auto 0;
+    width: 100%;
+    border-radius: 0;
+    ion-segment-button {
+      width: 33.3333% !important;
+      height: 48px !important;
+      margin: 0;
+      --background: #F5F5F5;
+      --color: var(--ion-color-primary);
+      --background-checked: var(--ion-color-primary);
+      --color-checked: var(--ion-color-secondary);
+      --indicator-height: 0;
+      --border-radius: 0;
+      border: 1px solid rgba(93, 56, 192, 0.36);
+      ion-label {
+        text-transform: capitalize;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .slides-tabs {
+    .first-slide {
+      p {
+        width: 100% !important;
+        span {
+          width: 33.3333%;
+          float: left;
+          text-align: left;
+          font-size: var(--ion-normal-font);
+          color: var(--ion-color-dark);
+        }
+        span:first-child {
+          margin-left: 30px;
+        }
+        span.bold-price {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .second-slide {
+      p {
+        text-align: left;
+        color: var(--ion-color-dark);
+        padding: 0 20px;
+        line-height: 1.5;
+        font-size: var(--ion-normal-font);
+      }
+    }
+
+    .third-slide {
+
+    }
+  }
+}

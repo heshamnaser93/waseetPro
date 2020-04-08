@@ -1,0 +1,15 @@
+ion-buttons.menu-button {
+  padding-top: 15px;
+}
+
+ion-searchbar {
+  --icon-color: var(--ion-color-tertiary) !important;
+  --placeholder-color: var(--ion-color-primary);
+  --placeholder-opacity: .8;
+  margin: 5px auto;
+  padding-top: 15px;
+}
+
+ion-buttons.add-button {
+  padding-top: 5px;
+}

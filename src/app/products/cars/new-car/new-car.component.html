@@ -1,0 +1,355 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" class="menu-button">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Add New Car</ion-title>
+    <ion-buttons slot="primary">
+      <ion-back-button defaultHref="/products/cars"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <div *ngIf="!showTranslate" class="fixed-top-segment ion-no-padding">
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="sections.selectedSection">
+      <ion-segment-button value="{{ sections.first }}">
+        <ion-label>Ad Information</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="{{ sections.second }}">
+        <ion-label>Car Information</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="carForm">
+    <ion-grid *ngIf="_adInfo && !_carInfo">
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item>
+            <ion-label position="floating">Ad Title</ion-label>
+            <ion-input
+                    type="text"
+                    autocomplete
+                    autocorrect
+                    formControlName="adTitle"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item>
+            <ion-label position="floating">Car Price</ion-label>
+            <ion-input
+                    type="number"
+                    autocomplete
+                    autocorrect
+                    formControlName="carPrice"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>Currency</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">USD</ion-select-option>
+              <ion-select-option value="">Euro</ion-select-option>
+              <ion-select-option value="">TL</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>Country</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">Turkey</ion-select-option>
+              <ion-select-option value="">Egypt</ion-select-option>
+              <ion-select-option value="">USA</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>City</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">Istanbul</ion-select-option>
+              <ion-select-option value="">Cairo</ion-select-option>
+              <ion-select-option value="">New York</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item>
+            <ion-label position="floating">Address</ion-label>
+            <ion-input
+                    type="text"
+                    autocomplete
+                    autocorrect
+                    formControlName="address"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="no-border-bottom">
+            <ion-toggle name="active" checked></ion-toggle>
+            <ion-label>Active</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-button type="button" fill="outline" class="form-btn-style" (click)="goForward()">Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid *ngIf="_carInfo && !_adInfo && !showTranslate">
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>Category</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">one</ion-select-option>
+              <ion-select-option value="">two</ion-select-option>
+              <ion-select-option value="">three</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>Companies</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">one</ion-select-option>
+              <ion-select-option value="">two</ion-select-option>
+              <ion-select-option value="">three</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>Model</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">one</ion-select-option>
+              <ion-select-option value="">two</ion-select-option>
+              <ion-select-option value="">three</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>General Model</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">one</ion-select-option>
+              <ion-select-option value="">two</ion-select-option>
+              <ion-select-option value="">three</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item>
+            <ion-label position="floating">Engine Capacity</ion-label>
+            <ion-input
+                    type="number"
+                    autocomplete
+                    autocorrect
+                    formControlName="engineCapacity"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item>
+            <ion-label position="floating">Km/h</ion-label>
+            <ion-input
+                    type="number"
+                    autocomplete
+                    autocorrect
+                    formControlName="kilometer"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>Gear Box</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">one</ion-select-option>
+              <ion-select-option value="">two</ion-select-option>
+              <ion-select-option value="">three</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>Fuel Type</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">one</ion-select-option>
+              <ion-select-option value="">two</ion-select-option>
+              <ion-select-option value="">three</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>External Color</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">one</ion-select-option>
+              <ion-select-option value="">two</ion-select-option>
+              <ion-select-option value="">three</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item>
+            <ion-label position="floating">Internal Color</ion-label>
+            <ion-input
+                    type="text"
+                    autocomplete
+                    autocorrect
+                    formControlName="internalColor"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="select-item">
+            <ion-label>Car Type</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss">
+              <ion-select-option value="">one</ion-select-option>
+              <ion-select-option value="">two</ion-select-option>
+              <ion-select-option value="">three</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea formControlName="description"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-item class="no-border-bottom img-item">
+            <ion-row>
+              <ion-col size="12" class="ion-no-padding">
+                <ion-label>Images</ion-label>
+              </ion-col>
+              <ion-col size="12" class="ion-no-padding ion-text-center">
+                <ion-button type="button" fill="outline">Add Images</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col sizeSm="6" offsetSm="3">
+          <ion-button type="button" fill="outline" class="form-btn-style" (click)="showTranslateMethod()">Next</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid *ngIf="showTranslate" class="ion-no-padding">
+      <ion-tab-bar color="primary">
+        <ion-text color="secondary">Translation</ion-text>
+      </ion-tab-bar>
+
+      <ion-grid class="ion-padding">
+        <ion-row>
+          <ion-col sizeSm="6" offsetSm="3">
+            <ion-item class="select-item">
+              <ion-label>Language</ion-label>
+              <ion-select okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="">one</ion-select-option>
+                <ion-select-option value="">two</ion-select-option>
+                <ion-select-option value="">three</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col sizeSm="6" offsetSm="3">
+            <ion-item>
+              <ion-label position="floating">Ad Location</ion-label>
+              <ion-textarea formControlName="adLocation"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col sizeSm="6" offsetSm="3">
+            <ion-item>
+              <ion-label position="floating">Description</ion-label>
+              <ion-textarea formControlName="transDescription"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-button type="button" fill="outline" class="form-btn-style go-prev" (click)="goBack()">Prev</ion-button>
+            <ion-button type="button" fill="clear" class="skip-btn">Skip</ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12">
+            <ion-button type="submit" class="submit-btn">Add</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-grid>
+  </form>
+</ion-content>

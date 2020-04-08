@@ -1,0 +1,164 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/products/cars"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Selling Cars</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon name="heart-outline" color="light"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="share-social-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<div *ngIf="isLoading" class="ion-padding ion-text-center">
+  <ion-spinner color="primary"></ion-spinner>
+</div>
+
+<ion-content *ngIf="!isLoading">
+  <div>
+    <ion-slides pager="true" [options]="slidesOpts" class="slides-pagination">
+      <ion-slide *ngFor="let img of car.image">
+        <ion-img [src]="car.getFullPath(img['path'])"></ion-img>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <ion-text class="ion-text-center item-model">
+    <p>{{ car.brand }}</p>
+    <h4>{{ car.brandModel }}</h4>
+  </ion-text>
+
+  <div class="item-info">
+    <div class="item-info-details">
+      <ion-icon name="earth-outline" color="primary" size="small"></ion-icon>
+      <ion-text color="dark">{{ car.country }}</ion-text>
+    </div>
+    <div class="item-info-details">
+      <ion-icon name="business-outline" color="primary" size="small"></ion-icon>
+      <ion-text color="dark">{{ car.cityName }}</ion-text>
+    </div>
+    <div class="item-info-details">
+      <ion-icon name="calendar-outline" color="primary" size="small"></ion-icon>
+      <ion-text color="dark">{{ car.modelYear }}</ion-text>
+    </div>
+  </div>
+
+  <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="tabs.selectedTab">
+    <ion-segment-button value="{{ tabs.first }}">
+      <ion-label>Information</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="{{ tabs.second }}">
+      <ion-label>Details</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="{{ tabs.third }}">
+      <ion-label>Address</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="slides-tabs">
+    <div class="first-slide" *ngIf="_infoTab && !_detailTab && !_mapTab">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <p>
+              <span>Price</span>
+              <span class="bold-price">{{ car.adPrice }} {{ currType }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Ad Date</span>
+              <span>{{ car.adDate | date }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Ad Number</span>
+              <span>{{ car.adNumber }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Category</span>
+              <span>{{ car.category }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Year</span>
+              <span>{{ car.modelYear }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Engine Capacity</span>
+              <span>{{ car.cylinder }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Km/h</span>
+              <span>{{ car.kilometer }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Gear Box</span>
+              <span>{{ car.gearType }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Fuel Type</span>
+              <span>{{ car.fuelType }}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12">
+            <p>
+              <span>Color</span>
+              <span>{{ car.exteriorColor }}</span>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="second-slide" *ngIf="_detailTab && !_infoTab && !_mapTab">
+      <ion-text class="ion-text-center">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar scelerisque volutpat. Mauris quam nisl, blandit ut imperdiet id, hendrerit nec justo. Donec quis maximus sem. Donec sagittis, ante sed porta faucibus, tortor turpis mattis lacus, sed feugiat nisi libero quis nisl. Nam porta magna quis neque efficitur, finibus feugiat mauris gravida. Duis tempus ipsum ante, vel venenatis nibh accumsan at. Etiam lacus diam, dictum ac dolor non, bibendum finibus quam.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar scelerisque volutpat. Mauris quam nisl, blandit ut imperdiet id, hendrerit nec justo. Donec quis maximus sem. Donec sagittis, ante sed porta faucibus, tortor turpis mattis lacus, sed feugiat nisi libero quis nisl. Nam porta magna quis neque efficitur, finibus feugiat mauris gravida. Duis tempus ipsum ante, vel venenatis nibh accumsan at. Etiam lacus diam, dictum ac dolor non, bibendum finibus quam.
+        </p>
+      </ion-text>
+    </div>
+
+    <div class="third-slide" *ngIf="_mapTab && !_detailTab && !_infoTab">
+      <div class="map"></div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="primary" class="bar-position">
+        <ion-tab-button tab="customer-service">
+          <ion-icon name="person-circle-outline" color="secondary" size="large"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="call">
+          <ion-icon name="call-outline" color="secondary" size="large"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="whatsapp">
+          <ion-icon name="logo-whatsapp" color="secondary" size="large"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

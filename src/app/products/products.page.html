@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>PRODUCTS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" sizeSm="8" offsetSm="2" *ngIf="isLoading">
+        <div class="ion-text-center">
+          <ion-spinner color="primary"></ion-spinner>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" sizeSm="8" offsetSm="2" *ngIf="!isLoading">
+        <div class="ion-padding on-item" (click)="onClickCars()">
+          <ion-thumbnail>
+            <div class="overlay"></div>
+            <ion-img src="https://wallpapercave.com/wp/zoz3Q3c.jpg"></ion-img>
+          </ion-thumbnail>
+          <ion-text color="light" class="ion-text-center item-title">
+            <h3>Cars</h3>
+          </ion-text>
+          <ion-text color="secondary" class="in-stock">
+            <p>5 advertisments</p>
+          </ion-text>
+        </div>
+
+        <div class="ion-padding on-item">
+          <ion-thumbnail>
+            <div class="overlay"></div>
+            <ion-img src="https://amwalalghad.com/wp-content/uploads/2019/03/%D8%B9%D9%82%D8%A7%D8%B1%D8%A7%D8%AA.jpg"></ion-img>
+          </ion-thumbnail>
+          <ion-text color="light" class="ion-text-center item-title">
+            <h3>Real Estates</h3>
+          </ion-text>
+          <ion-text color="danger" class="in-stock">
+            <p>4 advertisments</p>
+          </ion-text>
+        </div>
+
+        <div class="ion-padding on-item">
+          <ion-thumbnail>
+            <div class="overlay"></div>
+            <ion-img src="https://cdn.mobilesyrup.com/wp-content/uploads/2017/09/iphone-x-no-wm.jpg"></ion-img>
+          </ion-thumbnail>
+          <ion-text color="light" class="ion-text-center item-title">
+            <h3>Mobiles</h3>
+          </ion-text>
+          <ion-text color="secondary" class="in-stock">
+            <p>3 advertisments</p>
+          </ion-text>
+        </div>
+
+        <div class="ion-padding on-item">
+          <ion-thumbnail>
+            <div class="overlay"></div>
+            <ion-img src="https://cdn.mos.cms.futurecdn.net/Jag4ZvbJfwJCxBDRdcqvp4-768-80.jpg"></ion-img>
+          </ion-thumbnail>
+          <ion-text color="light" class="ion-text-center item-title">
+            <h3>Electrical devices</h3>
+          </ion-text>
+          <ion-text color="secondary" class="in-stock">
+            <p>6 advertisments</p>
+          </ion-text>
+        </div>
+
+        <div class="ion-padding on-item">
+          <ion-thumbnail>
+            <div class="overlay"></div>
+            <ion-img src="https://s3-us-west-2.amazonaws.com/cities.directory/al-riyadh.directory/public_html/uploads/place_images/photos/58afe4da1035a.jpg"></ion-img>
+          </ion-thumbnail>
+          <ion-text color="light" class="ion-text-center item-title">
+            <h3>Furniture</h3>
+          </ion-text>
+          <ion-text color="success" class="in-stock">
+            <p>6 advertisments</p>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="primary" class="bar-position">
+        <ion-tab-button tab="categories">
+          <ion-icon name="notifications-outline" color="secondary"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="home">
+          <ion-icon name="home-outline" color="secondary"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="notification">
+          <ion-icon name="grid-outline" color="secondary"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
+

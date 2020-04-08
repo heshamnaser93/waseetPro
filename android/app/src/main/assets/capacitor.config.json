@@ -1,0 +1,8 @@
+{
+  "appId": "waseetPro",
+  "appName": "waseetPro",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

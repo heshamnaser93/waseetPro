@@ -1,0 +1,57 @@
+<div class="item-full-info">
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col size="12">
+                <ion-header>
+                    <span class="header-part left-part">
+                        <ion-icon name="car-sport-outline" color="primary"></ion-icon>
+                        <ion-text color="dark">{{ car.getShortName() }}</ion-text>
+                    </span>
+                    <span class="header-part right-part">
+                        <ion-text color="primary">{{ car.adDate | date }}</ion-text>
+                        <ion-icon name="calendar-outline" color="primary"></ion-icon>
+                    </span>
+                </ion-header>
+
+                <div class="detailed-info">
+                    <ion-grid class="ion-no-padding">
+                        <ion-row>
+                            <ion-col size="4">
+                                <ion-thumbnail>
+                                    <ion-img [src]="car.getImageFullPath()"></ion-img>
+                                </ion-thumbnail>
+                            </ion-col>
+                            <ion-col size="8" class="car-info">
+                                <ion-label>
+                                    <span class="car-name">{{ car.brand }}</span>
+                                    <ion-text class="model-container">
+                                        <span class="model">{{ car.brandModel }}</span>
+                                        <span class="price">{{ car.adPrice }} {{ currType }}</span>
+                                    </ion-text>
+                                    <div class="lower-details">
+                                        <div class="item-lower-details">
+                                            <ion-icon name="speedometer" color="secondary" size="small"></ion-icon>
+                                            <ion-text color="dark">{{ car.kilometer }}</ion-text>
+                                        </div>
+                                        <div class="item-lower-details">
+                                            <ion-icon name="git-merge" color="secondary" size="small"></ion-icon>
+                                            <ion-text color="dark">{{ car.gearType }}</ion-text>
+                                        </div>
+                                        <div class="item-lower-details">
+                                            <ion-icon name="flame-outline" color="secondary" size="small"></ion-icon>
+                                            <ion-text color="dark">{{ car.fuelType }}</ion-text>
+                                        </div>
+                                        <div class="item-lower-details">
+                                            <ion-icon name="calendar-outline" color="secondary" size="small"></ion-icon>
+                                            <ion-text color="dark">{{ car.modelYear }}</ion-text>
+                                        </div>
+                                    </div>
+                                </ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>

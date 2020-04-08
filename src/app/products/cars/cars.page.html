@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" class="menu-button">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar class="ion-text-center" color="light" (ionInput)="setFilteredCars($event)"></ion-searchbar>
+    <ion-buttons slot="primary" class="add-button">
+      <ion-fab-button size="small" color="light" (click)="addNewCar()">
+        <ion-icon name="add-outline" color="secondary"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="isLoading" class="ion-padding ion-text-center">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+  <ion-list *ngIf="!isLoading">
+    <ion-item-sliding *ngFor="let car of cars">
+      <app-car-item [car]="car" (click)="carSpecs(car.id)"></app-car-item>
+      <ion-item-options side="end">
+        <ion-item-option>
+          <ion-icon name="create" slot="icon-only"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" color="primary" class="bar-position">
+        <ion-tab-button tab="categories">
+          <ion-icon name="notifications-outline" color="secondary"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="home">
+          <ion-icon name="home-outline" color="secondary"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="notification">
+          <ion-icon name="grid-outline" color="secondary"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

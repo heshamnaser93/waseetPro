@@ -1,0 +1,101 @@
+<ion-app>
+  <ion-menu side="start">
+    <ion-header class="ion-text-center">
+      <ion-avatar class="ion-padding">
+        <ion-img src="https://cdn.vox-cdn.com/thumbor/wI3iu8sNbFJSQB4yMLsoPMNzIHU=/0x0:3368x3368/1200x800/filters:focal(1188x715:1726x1253)/cdn.vox-cdn.com/uploads/chorus_image/image/62994726/AJ_Finn_author_photo_color_photo_courtesy_of_the_author.0.jpg"></ion-img>
+      </ion-avatar>
+      <ion-text color="light">
+        <p>UnKnown Name</p>
+      </ion-text>
+      <div class="fav-btn-container">
+        <button class="fav-btn" type="button">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">
+                <ion-icon name="heart-outline" color="secondary" size="large"></ion-icon>
+              </ion-col>
+              <ion-col size="12">
+                <ion-text color="secondary">Favourite</ion-text>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </button>
+      </div>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="volume-medium-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">Latest Ads</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle routerLink="/products/cars">
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="car-sport-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">Cars</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="home-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">Real Estates</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="phone-portrait-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">Mobiles</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="desktop-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">Electronic Devices</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="bed-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">Furniture</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="person-add-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">New Customer</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="person-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">New Seller</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="settings-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">Settings</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item lines="none" routerLink="/products">
+            <ion-icon name="log-out-outline" color="primary" size="small"></ion-icon>
+            <ion-label color="dark ion-padding">Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>
